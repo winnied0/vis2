@@ -1,0 +1,159 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 400,
+    "title": "Mean Max Temperature of Australian States and Territories (2000-2023)",
+    "data": {
+      "url": "https://raw.githubusercontent.com/winnied0/vis2/refs/heads/main/Mean%20Max%20Temp%20(removed%20canberra).csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "Date": "date"
+        }
+      }
+    },
+    "params": [
+      {
+        "name": "Year_Above",
+        "value": 2017,
+        "bind": {
+          "input": "range",
+          "min": 2000,
+          "max": 2023,
+          "step": 1,
+          "name": "Select the year: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "year(datum.Date) == Year_Above"
+      }
+    ],
+    "layer": [
+      {
+        "selection": {
+          "highlight": {
+            "type": "single",
+            "fields": ["State"],
+            "empty": "all"  
+          }
+        },
+        "mark": "line",
+        "encoding": {
+          "x": {
+            "field": "Date",
+            "type": "temporal",
+            "title": "Date"
+          },
+          "y": {
+            "field": "Temperature",
+            "type": "quantitative",
+            "title": "Temperature (°C)"
+          },
+          "color": {
+            "condition": {
+              "selection": "highlight",  
+              "field": "State",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "Australian Capital Territory",
+                  "New South Wales",
+                  "Northern Territory",
+                  "Queensland",
+                  "South Australia",
+                  "Tasmania",
+                  "Victoria",
+                  "Western Australia"
+                ],
+                "range": [
+                  "#FFFF00", 
+                  "#E6E600",  
+                  "#FFCC00",  
+                  "#FF9900",
+                  "#FF9966", "#FF6600",  
+                  "#FF3300",  
+                  "#FF0000" 
+                ]
+              }
+            },
+            "value": "lightgray"  
+          },
+          "tooltip": [
+            {
+              "field": "Date",
+              "type": "temporal",
+              "title": "Date Temperature Was Recorded On:"
+            },
+            {
+              "field": "Temperature",
+              "type": "quantitative",
+              "title": "Mean Maximum Temperature (°C):"
+            }
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "dx": 5,
+          "dy": -5,
+          "fontSize": 12,
+          "color": "black"
+        },
+        "encoding": {
+          "x": { "value": 25 },
+          "y": { "value": 310 },
+          "text": { "value": "Overall, the positions of each state in relation to each " }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "center",
+          "dx": 10,
+          "dy": 20,
+          "fontSize": 12,
+          "color": "black"
+        },
+        "encoding": {
+          "x": { "value": 160 },
+          "y": { "value": 300 },
+          "text": { "value": "other have stayed relatively consistent, as seen in the" }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "center",
+          "dx": 10,
+          "dy": 20,
+          "fontSize": 12,
+          "color": "black"
+        },
+        "encoding": {
+          "x": { "value": 160 },
+          "y": { "value": 315 },
+          "text": { "value": "Northern Territory which has predominately had a highest" }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "center",
+          "dx": 10,
+          "dy": 20,
+          "fontSize": 12,
+          "color": "black"
+        },
+        "encoding": {
+          "x": { "value": 160 },
+          "y": { "value": 330 },
+          "text": { "value": "average temperature over the years." }
+        }
+      }
+    ]
+  }
+  

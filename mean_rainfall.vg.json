@@ -1,0 +1,76 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 300,
+    "title": "Monthly Mean Rainfall of Australia and individual states and territories from 2000 to 2023 (in mm)",
+    "data": {
+      "url": "https://raw.githubusercontent.com/winnied0/vis2/refs/heads/main/Mean%20Monthly%20Rainfall%20(Country%20and%20States).csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "params": [
+      {
+        "name": "SelectedArea",
+        "value": "Australia",
+        "bind": {
+          "input": "select",
+          "options": [
+            "Australia",  
+            "Australian Capital Territory",
+            "New South Wales",
+            "Northern Territory",
+            "Queensland",
+            "South Australia",
+            "Tasmania",
+            "Victoria",
+            "Western Australia"
+          ],
+          "name": "Select Area: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "(SelectedArea == 'Australia' && datum.Area == 'Australia') || (datum.Area == SelectedArea)"
+      }
+    ],
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      "y": {
+        "field": "Month",
+        "type": "ordinal",
+        "title": "Month",
+        "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+      },
+      "color": {
+        "field": "Rainfall",
+        "type": "quantitative",
+        "title": "Rainfall (in mm)",
+        "scale": {
+          "scheme": "blues"
+        }
+      },
+      "tooltip": [
+        { "field": "Area", "type": "nominal", "title": "Area" },
+        { "field": "Month", "type": "ordinal", "title": "Month" },
+        { "field": "Year", "type": "ordinal", "title": "Year" },
+        { "field": "Rainfall", "type": "quantitative", "title": "Rainfall (in mm)" }
+      ]
+    },
+    "config": {
+      "view": {
+        "stroke": null,
+        "step": 20
+      },
+      "axis": {
+        "domain": false
+      }
+    }
+  }
+  

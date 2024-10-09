@@ -35,9 +35,9 @@
 
     <!-- pure grid group -->
     <div class="pure-g">
-      <div class="pure-u-1-2">
+      <div class="pure-u-1-1">
         <div class="description description-left">
-          <h2>Impact of Bushfires on Australian Land Area</h2>
+          <h3>Impact of Bushfires on Australian Land Area</h3>
           <p>This map illustrates the amount of land that was burnt
             in each state and territory during the 2020-21 bushfire season. 
             This has been normalised using the area of each state 
@@ -58,8 +58,44 @@
             </p>
         </div>
       </div>
-      <div class="pure-u-1-2">
-        <div id="vis1" class="vis-container"></div>
+      <div class="pure-u-1-2" style="width: 31.5%;">
+        <div id="vis1" class="vis-container" style="margin-left: 340px;"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h2>Changes in Climate over the years in Australia</h2>
+        <p>Climate change has had a strong impact on many aspects of bushfires such as their frequency and intensity. 
+        For instance, the increased average temperature of the globe, in tandem with decrease rainfall have acted to 
+        exacerbate the dry seasons experienced by areas that have historically been suspectible to bushfires.
+        </p>
+        <p>
+          Below, the key climate factors that have been explored include temperature and rainfall.
+        </p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h3>Impact of Climate Change on Temperature</h3>
+        <p>The two line charts represents the monthly average maximum and minimum temperature 
+          of each state and territory in Australia between the period of 2000-2023.</p>
+
+          <p>
+            Overall, between the period of 2000-2023, the mean maximum temperature has remained 
+            rather consistent, however, in recent years, there have been more instances of extreme 
+            heat such as in the case of 2019 and 2022 where there were instances of the mean maximum 
+            temperatures of a state or territory exceeding 35 degrees celsius. 
+
+            A similar trend can be observed in the mean minimum temperature. However, it is worth noting that 
+            the mean minimum temperature has a higher variance between each state unlike the maximum temperature.
+
+          </p>
       </div>
     </div>
     <!-- end pure grid group -->
@@ -69,32 +105,55 @@
       <div class="pure-u-1-2">
         <div id="vis2" class="vis-container"></div>
       </div>
-      <div class="pure-u-1-2">
-        <div class="description description-right">
-          <h2>How the mean maximum temperature has changed over the years</h2>
-          <p>This line chart represents the monthly average maximum temperature 
-            of each state and territory in Australia between the period of 2010-2023.
-          </p>
-
-          <p>
-            Overall, between the period of 2010-2023, the mean maximum temperature has remained 
-            rather consistent, however, in recent years, there have been more instances of extreme 
-            heat such as in the case of 2019 and 2022 where there were instances of the mean maximum 
-            temperatures of a state or territory exceeding 35 degrees celsius. 
-          </p>
+      <div class="pure-g">
+        <div class="pure-u-1-2">
+          <div id="vis3" class="vis-container"></div>
         </div>
       </div>
     </div>
     <!-- end pure grid group -->
 
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h3>Impact of Climate Change on Rainfall</h3>
+        <p>The heatmap below depicts the mean monthly rainfall experienced by each individual state and territory, as well as nationally between 2010-2023.</p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+    
+  <!-- pure grid group -->
+  <div class="pure-g">
+    <div class="pure-u-1-1" style="width: 31.5%;">
+      <div id="vis4" class="vis-container" style="margin-left: 300px;"></div>
+    </div>
+  </div>
+  <!-- end pure grid group -->
+
+      <!-- pure grid group -->
+      <div class="pure-g">
+        <div class="pure-u-1-1">
+          <p>As seen in the heatmap, with the exception of February 2022 which was an outlier, overall the average rainfall has decreased in most states, particularly in the last 5 years.</p>
+        </div>
+      </div>
+      <!-- end pure grid group -->
+
   <script type="text/javascript">
-    var specVis1 = "choropleth_map.vg.json";
-    var specVis2 = "line_chart_interactive.vg.json";
+    var specVis1 = "fixed_map.vg.json";
+    var specVis2 = "max_temp.vg.json";
+    var specVis3 = "min_temp.vg.json";
+    var specVis4 = "mean_rainfall.vg.json";
 
     vegaEmbed('#vis1', specVis1, { "actions": false }).then(function (result) {
     }).catch(console.error);
 
     vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+
+    vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
+    }).catch(console.error);
+
+    vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
     }).catch(console.error);
   </script>
 </body>
