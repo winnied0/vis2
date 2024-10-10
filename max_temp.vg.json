@@ -84,12 +84,12 @@
             {
               "field": "Date",
               "type": "temporal",
-              "title": "Date Temperature Was Recorded On:"
+              "title": "Date Temperature Was Recorded On"
             },
             {
               "field": "Temperature",
               "type": "quantitative",
-              "title": "Mean Maximum Temperature (°C):"
+              "title": "Mean Maximum Temperature (°C)"
             }
           ]
         }
