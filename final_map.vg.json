@@ -1,0 +1,81 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Area Burnt by Bushfires in Australia during the 2019-20 Bushfire Season (in ha)",
+      "fontSize": 16,
+      "anchor": "middle"
+    },
+    "width": 600,
+    "height": 350,
+    "projection": {"type": "equirectangular"},
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/winnied0/vis2/refs/heads/main/ne_50m%20(1).json",
+          "format": {"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
+        },
+        "transform": [
+          {
+            "lookup": "properties.name",
+            "from": {
+              "data": {
+                "url": "https://raw.githubusercontent.com/winnied0/vis2/refs/heads/main/Normalised_Bushfire_19_v2%20(1).csv"
+              },
+              "key": "State",
+              "fields": ["Area"]
+            }
+          },
+          {
+            "calculate": "datum.Area * 1", 
+            "as": "Percentage of State Area Burnt"
+          },
+          {
+            "filter": "datum.Area >= burnt_threshold"
+          }
+        ],
+        "mark": {"type": "geoshape", "stroke": "black", "strokeWidth": 0.5},
+        "encoding": {
+          "color": {
+            "field": "Percentage of State Area Burnt",
+            "type": "quantitative",
+            "scale": {
+              "type": "linear",
+              "domain": [0, 2, 5, 6, 20], 
+              "range": ["#ffffb2", "#ffb94c", "#ff7518", "#e63600", "#7f0000"]
+            },
+            "title": "Area Burnt (%)"
+          },
+          "tooltip": [
+            {"field": "properties.name", "type": "nominal", "title": "Area"},
+            {"field": "Percentage of State Area Burnt", "type": "quantitative", "title": "Area Burnt (%)"}
+          ]
+        }
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/winnied0/vis2/refs/heads/main/ne_50m%20(1).json",
+          "format": {"type": "topojson", "feature": "ne_50m_graticules_10"}
+        },
+        "mark": {"type": "geoshape", "stroke": "#949194", "strokeWidth": 0.7}
+      }
+    ],
+    "params": [
+      {
+        "name": "burnt_threshold",
+        "value": 0,
+        "bind": {
+          "input": "range",
+          "min": 0,
+          "max": 7,
+          "step": 0.1,
+          "name": "Threshold for % of Area Burnt: "
+        }
+      }
+  ],
+    "config": {
+      "view": {
+        "fill": "blue"  
+      },
+      "background": "#C7DDEF"
+    }
+  }

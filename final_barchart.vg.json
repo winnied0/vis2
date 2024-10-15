@@ -1,0 +1,110 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Monthly Area Burnt by State and Territory (in ha)",
+    "data": {
+      "url": "https://raw.githubusercontent.com/winnied0/vis2/refs/heads/main/damage(10).csv",
+      "format": {"type": "csv"}
+    },
+    "params": [
+      {
+        "name": "SelectedArea",
+        "value": "All",
+        "bind": {
+          "input": "select",
+          "options": [
+            "All",  
+            "Australian Capital Territory",
+            "New South Wales",
+            "Northern Territory",
+            "Queensland",
+            "South Australia",
+            "Tasmania",
+            "Victoria",
+            "Western Australia"
+          ],
+          "name": "Select Area: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "SelectedArea == 'All' || datum.State == SelectedArea"
+      }
+    ],
+    "layer": [
+      {
+        "mark": "bar",
+        "encoding": {
+          "x": {
+            "field": "State", 
+            "type": "nominal",
+            "title": "State / Territory"
+          },
+          "y": {
+            "aggregate": "sum", 
+            "field": "Area",
+            "type": "quantitative",
+            "title": "Total Area Burnt (ha)"
+          },
+          "color": {
+            "field": "Date",  
+            "type": "nominal",
+            "scale": {
+              "scheme": "oranges" 
+            },
+            "title": "Time Period"
+          },
+          "tooltip": [
+            {"field": "State", "type": "nominal", "title": "Area"},
+            {"field": "Date", "type": "nominal", "title": "Date"},
+            {"field": "Area", "type": "quantitative", "title": "Total Area Burnt during the Month (in ha)"}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "center",
+          "fontSize": 9,
+          "color": "grey",
+          "dx": 0,
+          "dy": 20 
+        },
+        "encoding": {
+          "x": { "value": 110 }, 
+          "y": { "value": 20 }, 
+          "text": { "value": "Please Note: This has" }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "center",
+          "fontSize": 9,
+          "color": "grey",
+          "dx": 0,
+          "dy": 20 
+        },
+        "encoding": {
+          "x": { "value": 110 },  
+          "y": { "value": 30 },  
+          "text": { "value": "not been normalised" }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "center",
+          "fontSize": 9,
+          "color": "grey",
+          "dx": 0,
+          "dy": 20 
+        },
+        "encoding": {
+          "x": { "value": 110 }, 
+          "y": { "value": 40 },  
+          "text": { "value": "like the map." }
+        }
+      }
+    ]
+  }

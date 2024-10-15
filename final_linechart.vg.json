@@ -1,0 +1,269 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Changes in the Temperatures of Australian States and Territories (2000-2023)",
+      "fontSize": 16,
+      "anchor": "middle"
+    },
+    "hconcat": [
+      {
+        "width": 400,
+        "height": 300,
+        "title": "Mean Minimum Temperatures",
+        "data": {
+          "url": "https://raw.githubusercontent.com/winnied0/vis2/refs/heads/main/Mean%20Min%20Temp%20(20%3A23%20final).csv",
+          "format": {
+            "type": "csv",
+            "parse": {
+              "Date": "date"
+            }
+          }
+        },
+        "transform": [
+          {
+            "filter": "year(datum.Date) == Year_Above"
+          }
+        ],
+        "layer": [
+          {
+            "selection": {
+              "highlight": {
+                "type": "single",
+                "fields": ["State"],
+                "empty": "all"
+              }
+            },
+            "mark": "line",
+            "encoding": {
+              "x": {
+                "field": "Date",
+                "type": "temporal",
+                "title": "Date"
+              },
+              "y": {
+                "field": "Temperature",
+                "type": "quantitative",
+                "title": "Temperature (°C)"
+              },
+              "color": {
+                "condition": {
+                  "selection": "highlight",
+                  "field": "State",
+                  "type": "nominal",
+                  "scale": {
+                    "domain": [
+                      "Australian Capital Territory",
+                      "New South Wales",
+                      "Northern Territory",
+                      "Queensland",
+                      "South Australia",
+                      "Tasmania",
+                      "Victoria",
+                      "Western Australia"
+                    ],
+                    "range": [
+                      "#e69138",
+                      "#ffd966",
+                      "#edf8b1", 
+                      "#99e600",
+                      "#7fcdbb", 
+                      "#41b6c4", 
+                      "#1d91c0", 
+                      "#0c2c84" 
+                    ]
+                  }
+                },
+                "value": "lightgray"
+              },
+              "tooltip": [
+                {
+                  "field": "Date",
+                  "type": "temporal",
+                  "title": "Date Temperature Was Recorded On:"
+                },
+                {
+                  "field": "Temperature",
+                  "type": "quantitative",
+                  "title": "Mean Minimum Temperature (°C):"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "width": 400,
+        "height": 300,
+        "title": "Mean Maximum Temperatures",
+        "data": {
+          "url": "https://raw.githubusercontent.com/winnied0/vis2/refs/heads/main/Mean%20Max%20Temp%20(removed%20canberra).csv",
+          "format": {
+            "type": "csv",
+            "parse": {
+              "Date": "date"
+            }
+          }
+        },
+        "transform": [
+          {
+            "filter": "year(datum.Date) == Year_Above"
+          }
+        ],
+        "layer": [
+          {
+            "selection": {
+              "highlight": {
+                "type": "single",
+                "fields": ["State"],
+                "empty": "all"
+              }
+            },
+            "mark": "line",
+            "encoding": {
+              "x": {
+                "field": "Date",
+                "type": "temporal",
+                "title": "Date"
+              },
+              "y": {
+                "field": "Temperature",
+                "type": "quantitative",
+                "title": "Temperature (°C)"
+              },
+              "color": {
+                "condition": {
+                  "selection": "highlight",
+                  "field": "State",
+                  "type": "nominal",
+                  "scale": {
+                    "domain": [
+                      "Australian Capital Territory",
+                      "New South Wales",
+                      "Northern Territory",
+                      "Queensland",
+                      "South Australia",
+                      "Tasmania",
+                      "Victoria",
+                      "Western Australia"
+                    ],
+                    "range": [
+                      "#e69138",
+                      "#ffd966",
+                      "#edf8b1", 
+                      "#99e600",
+                      "#7fcdbb", 
+                      "#41b6c4", 
+                      "#1d91c0", 
+                      "#0c2c84"  
+                    ]
+                  }
+                },
+                "value": "lightgray"
+              },
+              "tooltip": [
+                {
+                  "field": "Date",
+                  "type": "temporal",
+                  "title": "Date Temperature Was Recorded On:"
+                },
+                {
+                  "field": "Temperature",
+                  "type": "quantitative",
+                  "title": "Mean Maximum Temperature (°C):"
+                }
+              ]
+            }
+          },
+          {
+            "mark": {
+              "type": "text",
+              "align": "center",
+              "fontSize": 12,
+              "color": "grey",
+              "dx": 0,
+              "dy": 20 
+            },
+            "encoding": {
+              "x": { "value": 200 }, 
+              "y": { "value": 210 }, 
+              "text": { "value": "Overall, the positions of each state in relation to each " }
+            }
+          },
+          {
+            "mark": {
+              "type": "text",
+              "align": "center",
+              "fontSize": 12,
+              "color": "grey",
+              "dx": 0,
+              "dy": 20 
+            },
+            "encoding": {
+              "x": { "value": 200 }, 
+              "y": { "value": 225 }, 
+              "text": { "value": "other have stayed relatively consistent, as seen in the" }
+            }
+          },
+          {
+            "mark": {
+              "type": "text",
+              "align": "center",
+              "fontSize": 12,
+              "color": "grey",
+              "dx": 0,
+              "dy": 20 
+            },
+            "encoding": {
+              "x": { "value": 200 }, 
+              "y": { "value": 240 }, 
+              "text": { "value": "Northern Territory which has predominately had a highest " }
+            }
+          },
+          {
+            "mark": {
+              "type": "text",
+              "align": "center",
+              "fontSize": 12,
+              "color": "grey",
+              "dx": 0,
+              "dy": 20 
+            },
+            "encoding": {
+              "x": { "value": 200 }, 
+              "y": { "value": 255 }, 
+              "text": { "value": " and ACT which predominately had the lowest average" }
+            }
+          },
+          {
+            "mark": {
+              "type": "text",
+              "align": "center",
+              "fontSize": 12,
+              "color": "grey",
+              "dx": 0,
+              "dy": 20 
+            },
+            "encoding": {
+              "x": { "value": 200 }, 
+              "y": { "value": 270 }, 
+              "text": { "value": "temperature over the years." }
+            }
+          }
+        ]
+      }
+    ],
+    "params": [
+      {
+        "name": "Year_Above",
+        "value": 2017,
+        "bind": {
+          "input": "range",
+          "min": 2000,
+          "max": 2023,
+          "step": 1,
+          "name": "Select the year: "
+        }
+      }
+    ]
+  }
+  

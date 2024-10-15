@@ -1,0 +1,125 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 300,
+    "title": "Monthly Mean Rainfall of Australia and Individual States and Territories from 2000 to 2023 (in mm)",
+    "data": {
+      "url": "https://raw.githubusercontent.com/winnied0/vis2/refs/heads/main/Mean%20Monthly%20Rainfall%20(Country%20and%20States).csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "params": [
+      {
+        "name": "SelectedArea",
+        "value": "Australia",
+        "bind": {
+          "input": "select",
+          "options": [
+            "Australia",  
+            "Australian Capital Territory",
+            "New South Wales",
+            "Northern Territory",
+            "Queensland",
+            "South Australia",
+            "Tasmania",
+            "Victoria",
+            "Western Australia"
+          ],
+          "name": "Select Area: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "(SelectedArea == 'Australia' && datum.Area == 'Australia') || (datum.Area == SelectedArea)"
+      }
+    ],
+    "layer": [
+      {
+        "mark": "rect",
+        "encoding": {
+          "x": {
+            "field": "Year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          "y": {
+            "field": "Month",
+            "type": "ordinal",
+            "title": "Month",
+            "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+          },
+          "color": {
+            "field": "Rainfall",
+            "type": "quantitative",
+            "title": "Rainfall (in mm)",
+            "scale": {
+              "scheme": "blues"
+            }
+          },
+          "tooltip": [
+            { "field": "Area", "type": "nominal", "title": "Area" },
+            { "field": "Month", "type": "ordinal", "title": "Month" },
+            { "field": "Year", "type": "ordinal", "title": "Year" },
+            { "field": "Rainfall", "type": "quantitative", "title": "Rainfall (in mm)" }
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "center",
+          "fontSize": 12,
+          "color": "grey",
+          "dx": 0,
+          "dy": 20 
+        },
+        "encoding": {
+          "x": { "value": 400 },
+          "y": { "value": 165 }, 
+          "text": { "value": "In 2019, this was an overwhelming dry year with " }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "center",
+          "fontSize": 12,
+          "color": "grey",
+          "dx": 0,
+          "dy": 20 
+        },
+        "encoding": {
+          "x": { "value": 400 },
+          "y": { "value": 180 }, 
+          "text": { "value": "October, November and December having substantially" }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "center",
+          "fontSize": 12,
+          "color": "grey",
+          "dx": 0,
+          "dy": 20 
+        },
+        "encoding": {
+          "x": { "value": 400 },
+          "y": { "value": 195 }, 
+          "text": { "value": "less rainfall compared to other years on this heatmap." }
+        }
+      }
+    ],
+    "config": {
+      "view": {
+        "stroke": null,
+        "step": 20
+      },
+      "axis": {
+        "domain": false
+      }
+    }
+  }
+  
