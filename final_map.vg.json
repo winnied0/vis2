@@ -73,9 +73,6 @@
       }
   ],
     "config": {
-      "view": {
-        "fill": "blue"  
-      },
       "background": "#C7DDEF"
     }
   }
