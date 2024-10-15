@@ -60,51 +60,6 @@
             {"field": "Area", "type": "quantitative", "title": "Total Area Burnt during the Month (in ha)"}
           ]
         }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "center",
-          "fontSize": 9,
-          "color": "grey",
-          "dx": 0,
-          "dy": 20 
-        },
-        "encoding": {
-          "x": { "value": 110 }, 
-          "y": { "value": 20 }, 
-          "text": { "value": "Please Note: This has" }
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "center",
-          "fontSize": 9,
-          "color": "grey",
-          "dx": 0,
-          "dy": 20 
-        },
-        "encoding": {
-          "x": { "value": 110 },  
-          "y": { "value": 30 },  
-          "text": { "value": "not been normalised" }
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "center",
-          "fontSize": 9,
-          "color": "grey",
-          "dx": 0,
-          "dy": 20 
-        },
-        "encoding": {
-          "x": { "value": 110 }, 
-          "y": { "value": 40 },  
-          "text": { "value": "like the map." }
-        }
       }
     ]
   }

@@ -28,39 +28,85 @@
     <div class="pure-g">
       <div class="pure-u-1-1">
         <h1>Bushfires in Australia</h1>
-        <p>This page provides an overview of bushfires that have occurred in Australia, and the impact of climate change on these occurrences. </p>
+        <p>This page provides an overview of bushfires that have occurred 
+          in Australia during the 2019-20 bushfire season, which has also 
+          colloquially been referred to as “Black Summer”, before exploring 
+          how climate change may have exacerbated the scale of the bushfires.</p>
       </div>
     </div>
     <!-- end pure grid group -->
 
     <!-- pure grid group -->
     <div class="pure-g">
-      <div class="pure-u-1-1">
-        <div class="description description-left">
+      <div class="pure-u-1-5">
+        <div class="description-left">
           <h3>Impact of Bushfires on Australian Land Area</h3>
-          <p>This map illustrates the amount of land that was burnt
-            in each state and territory during the 2020-21 bushfire season. 
-            This has been normalised using the area of each state 
-            to provide a percentage of the land burnt. </p>
-            
-            <p> Based on the visualisation, the most affected state or territory 
+          <p>This map illustrates the amount of land that was burnt in 
+            each state and territory during the season. This has been 
+            normalised using the area of each state to provide a percentage 
+            of the land burnt. A slider has been provided to allow filtering 
+            of states and territories based on the percentage.
+          </p>
+          <p>
+            Based on the visualisation, the most affected state or territory 
             was the Australian Capital Territory where over a third of the 
-            territory's land area was burnt during the bushfire season. The 
+            territory's land area was burnt during the bushfire season. 
+          </p>
+        </div>
+      </div>
+      <div class="pure-u-1-5">
+        <div class="description-left" style="margin-left: 30px; padding-top: 65px;">
+          <p>The 
             scale of the damage to the land was substantially more detrimental 
             compared to the other states and territories where the next most 
             affected states were New South Wales and Victoria, which only 
-            sustained approximately 6% of damage of the state's land. </p>
-
-            <p>
-              In contrast, Western Australia, South Australia and Tasmania had less
-              than 1% of their land area that was affected by the bushfires in the 
-              2020-21 bushfire season.
+            sustained approximately 6% of damage of the states’ land.
             </p>
+            <p> In contrast, Western Australia, South Australia and Tasmania had 
+              less than 1% of their land area that was affected by the bushfires 
+              in the 2020-21 bushfire season.
+              </p>
         </div>
       </div>
-      <div class="pure-u-1-2" style="width: 31.5%;">
-        <div id="vis1" class="vis-container" style="margin-left: 340px;"></div>
+      <div class="pure-u-1-2">
+        <div id="vis1" class="map" style="margin-left: 80px;"></div>
       </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div id="vis4" class="vis-container" style="margin-left: 200px" ></div>
+      </div>
+      <div class="pure-u-1-2">
+        <div class="vis-container" style="margin-right: 120px; padding-top: 50px;">
+    
+          <p>The stacked bar chart provides further insight into the 
+            distribution of the damage over the months. For New South 
+            Wales, Northern Territory and Western Australia, there was 
+            an even distribution with a consistent amount of area being 
+            burnt over the season.
+
+          </p>
+          <p> In contrast, the remaining states and territories either 
+            experienced damage throughout a shorter time period as
+            illustrated by Queensland and the Australian Capital Territory, 
+            or experienced a strong skew as illustrated by Victoria, where 
+            most of the damage was sustained in the first two months.
+            </p>
+            <p> Together with the map, this chart acts to establish that all of the states and territories 
+              were impacted by the fires to differing degrees and at differing 
+              timeframes.
+            
+              </p>
+            <p> Please note: The chart has not been normalised like the map as it aims to 
+              illustrate the distribution of the total dmanage sustained by 
+              month. Therefore, while it appears that the Northern Territory 
+              sustained the most of damage, due to the scale of the territory’s 
+              land area, this only amounted to 5% of the land being affected.
+            </p>
+        </div>
     </div>
     <!-- end pure grid group -->
 
@@ -69,9 +115,11 @@
       <div class="pure-u-1-1">
         <h2>Changes in Climate over the years in Australia</h2>
         <p>Climate change has had a strong impact on many aspects of bushfires such as their frequency and intensity. 
-        For instance, the increased average temperature of the globe, in tandem with decrease rainfall have acted to 
-        exacerbate the dry seasons experienced by areas that have historically been suspectible to bushfires.
         </p>
+        <p>
+          For instance, the increased average temperature of the globe, in tandem with decreased rainfall have acted to 
+          exacerbate the dry seasons experienced by areas that have historically been susceptible to bushfires.
+          </p>
         <p>
           Below, the key climate factors that have been explored include temperature and rainfall.
         </p>
@@ -85,31 +133,51 @@
         <h3>Impact of Climate Change on Temperature</h3>
         <p>The two line charts represents the monthly average maximum and minimum temperature 
           of each state and territory in Australia between the period of 2000-2023.</p>
-
-          <p>
-            Overall, between the period of 2000-2023, the mean maximum temperature has remained 
-            rather consistent, however, in recent years, there have been more instances of extreme 
-            heat such as in the case of 2019 and 2022 where there were instances of the mean maximum 
-            temperatures of a state or territory exceeding 35 degrees celsius. 
-
-            A similar trend can be observed in the mean minimum temperature. However, it is worth noting that 
-            the mean minimum temperature has a higher variance between each state unlike the maximum temperature.
-
           </p>
       </div>
     </div>
     <!-- end pure grid group -->
 
+  <!-- pure grid group -->
+  <div class="pure-g">
+    <div class="pure-u-1-1" style="width: 31.5%;">
+      <div id="vis2" class="vis-container" style="margin-left: 250px;"></div>
+    </div>
+  </div>
+  <!-- end pure grid group -->
+
     <!-- pure grid group -->
     <div class="pure-g">
-      <div class="pure-u-1-2">
-        <div id="vis2" class="vis-container"></div>
+      <div class="pure-u-1-3">
+        <div class="vis-container"> 
+        <p> From 2010 onwards, there have been more instances of extreme heat such 
+             as in the case of 2019 and 2022 where there were numerous occurrences 
+             of the mean maximum temperatures of a state or territory exceeding 35 
+             degrees celsius. A similar trend can be observed in min temperature.
+           </p>
       </div>
-      <div class="pure-g">
-        <div class="pure-u-1-2">
-          <div id="vis3" class="vis-container"></div>
-        </div>
-      </div>
+    </div>
+    <div class="pure-u-1-3">
+      <div class="vis-container">
+      <p> 
+        In terms of how the temperature may have affected the Black
+        Summer, Australian Capital Territory had a consistent average 
+        maximum temperature of 31.6 degrees for 3 consecutive months 
+        between the period of December 2019 and February 2020. This 
+        extended period of extreme heat coincided with the peak damage 
+        sustained by the territory during the bushfire season, where over 
+      </p>
+    </div>
+  </div>
+  <div class="pure-u-1-3">
+    <div class="vis-container">
+    <p> 
+      30% of its area was affected by the bushfires as visible in the map 
+      above. This is bolstered by the fact that most of the damage was 
+      sustained in February 2020. This effectively highlights how the 
+      sustained extreme temperatures were a key factor that contributed 
+      to the devastating bushfire season. </p>
+  </div>
     </div>
     <!-- end pure grid group -->
 
@@ -117,7 +185,7 @@
     <div class="pure-g">
       <div class="pure-u-1-1">
         <h3>Impact of Climate Change on Rainfall</h3>
-        <p>The heatmap below depicts the mean monthly rainfall experienced by each individual state and territory, as well as nationally between 2010-2023.</p>
+        <p>The heatmap below depicts the mean monthly rainfall experienced by each individual state and territory, as well as nationally between 2000-2023.</p>
       </div>
     </div>
     <!-- end pure grid group -->
@@ -125,24 +193,81 @@
   <!-- pure grid group -->
   <div class="pure-g">
     <div class="pure-u-1-1" style="width: 31.5%;">
-      <div id="vis4" class="vis-container" style="margin-left: 300px;"></div>
+      <div id="vis3" class="vis-container" style="margin-left: 295px;"></div>
     </div>
   </div>
   <!-- end pure grid group -->
 
       <!-- pure grid group -->
       <div class="pure-g">
-        <div class="pure-u-1-1">
-          <p>As seen in the heatmap, with the exception of February 2022 which was an outlier, overall the average rainfall has decreased in most states, particularly in the last 5 years.</p>
+        <div class="pure-u-1-4">
+          <div class="vis-container"> 
+          <p> As seen in the heatmap, with the exception of February 
+            2022 which was an outlier, overall the average rainfall 
+            has decreased in most states, notably in the last 5 years. 
+             </p>
         </div>
+      </div>
+      <div class="pure-u-1-4">
+        <div class="vis-container">
+        <p> 
+          In terms of how the rainfall may have affected the Black
+        Summer, in December 2019, Australia only had an average of 
+      21.69mm of rainfall despite having 64.21mm in 2018 and 99.31mm 
+      in 2017.
+        </p>
+      </div>
+    </div>
+      <div class="pure-u-1-4">
+        <div class="vis-container">
+        <p> 
+          The reduced rainfall in 2019, resulted in the notably dry 
+          season which would have contributed to the circumstances 
+          leading up to Black Summer as it would have allowed the 
+          fires to spark and travel more easily.
+        </p>
+      </div>
+    </div>
+    <div class="pure-u-1-4">
+      <div class="vis-container">
+      <p> 
+        Based on the insights gained above, it was evident that the 
+        devastating reach of 2019-20 bushfires was not by coincidence, 
+        but rather was due to an accumulation of changes to Australia’s 
+        weather and environment as a result of climate change.</p>
+    </div>
+      </div>
+      <!-- end pure grid group -->
+
+      <!-- pure grid group -->
+      <div class="pure-g">
+        <div class="pure-u-1-1 small-font">
+          <div class="small-font">
+            <p>Visualisation by Winnie Dang (15/10/2024)
+            </p>
+            <p>Link to 5DS: https://github.com/winnied0/vis2/blob/main/5DS.pdf
+            </p>
+            <p>References used:
+            </p>
+            <p>https://knowledge.aidr.org.au/media/8049/aidr_major-incidents-report_2019-20.pdf (Australian Institute for Disaster Resilience)
+            </p>
+            <p>http://www.bom.gov.au/climate/data/index.shtml?bookmark=200 (Bureau of Meteorology)
+            </p>
+            <p>https://www.csiro.au/en/research/environmental-impacts/climate-change/state-of-the-climate/australias-changing-climate (CSIRO)
+            </p>
+            <p>https://www.ffm.vic.gov.au/history-and-incidents/past-bushfires (Forest Fire Management Victoria)
+            </p>
+        </div>
+      </div>
       </div>
       <!-- end pure grid group -->
 
   <script type="text/javascript">
     var specVis1 = "final_map.vg.json";
-    var specVis2 = "final_barchart.vg.json";
-    var specVis3 = "final_linechart.vg.json";
-    var specVis4 = "final_heatmap.vg.json";
+    var specVis2 = "final_linechart.vg.json";
+    var specVis3 = "final_heatmap.vg.json";
+    var specVis4 = "final_barchart.vg.json";
+
 
     vegaEmbed('#vis1', specVis1, { "actions": false }).then(function (result) {
     }).catch(console.error);
@@ -155,6 +280,7 @@
 
     vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
     }).catch(console.error);
+  
   </script>
 </body>
 
